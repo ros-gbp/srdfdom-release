@@ -1,5 +1,5 @@
 <stack>
-  <name>urdfdom</name>
+  <name>srdfdom</name>
   <version>0.1.0</version>
   <description>srdfdom is a parser for SRDF</description>
   <author email="isucan@willowgarage.com">Ioan Sucan</author>
