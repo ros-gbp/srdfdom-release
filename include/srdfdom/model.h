@@ -132,10 +132,6 @@ public:
     /// The name of the link this end effector connects to
     std::string parent_link_;
     
-    /// The name of the group to be considered the parent (this group should contain parent_link_)
-    /// If not specified, this member is empty.
-    std::string parent_group_;
-    
     /// The name of the group that includes the joints & links this end effector consists of
     std::string component_group_;
   };
@@ -166,13 +162,6 @@ public:
     std::string reason_;
   };
   
-  // Some joints can be passive (not actuated). This structure specifies information about such joints
-  struct PassiveJoint
-  {   
-    /// The name of the new joint
-    std::string name_;
-  };
-      
   /// Get the name of this model
   const std::string& getName(void) const
   {
@@ -213,12 +202,6 @@ public:
     return group_states_;
   }
   
-  /// Get the list of known passive joints
-  const std::vector<PassiveJoint>& getPassiveJoints(void) const
-  {
-    return passive_joints_;
-  }
-  
   /// Clear the model
   void clear(void);
   
@@ -229,15 +212,13 @@ private:
   void loadGroupStates(const urdf::ModelInterface &urdf_model, TiXmlElement *robot_xml);
   void loadEndEffectors(const urdf::ModelInterface &urdf_model, TiXmlElement *robot_xml);
   void loadDisabledCollisions(const urdf::ModelInterface &urdf_model, TiXmlElement *robot_xml);
-  void loadPassiveJoints(const urdf::ModelInterface &urdf_model, TiXmlElement *robot_xml);
-  
+
   std::string                    name_;
   std::vector<Group>             groups_;
   std::vector<GroupState>        group_states_;
   std::vector<VirtualJoint>      virtual_joints_;
   std::vector<EndEffector>       end_effectors_;
   std::vector<DisabledCollision> disabled_collisions_;
-  std::vector<PassiveJoint>      passive_joints_;
 };
 
 }
