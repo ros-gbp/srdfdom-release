@@ -358,7 +358,6 @@ void srdf::Model::loadEndEffectors(const urdf::ModelInterface &urdf_model, TiXml
     const char *ename = eef_xml->Attribute("name");
     const char *gname = eef_xml->Attribute("group");
     const char *parent = eef_xml->Attribute("parent_link");
-    const char *parent_group = eef_xml->Attribute("parent_group");
     if (!ename)
     {
       logError("Name of end effector is not specified");
@@ -395,10 +394,6 @@ void srdf::Model::loadEndEffectors(const urdf::ModelInterface &urdf_model, TiXml
       logError("Link '%s' specified as parent for end effector '%s' is not known to the URDF", parent, ename);
       continue;
     }
-    if (parent_group)
-    {
-      e.parent_group_ = std::string(parent_group); boost::trim(e.parent_group_);
-    }
     end_effectors_.push_back(e);
   }
 }
@@ -434,34 +429,6 @@ void srdf::Model::loadDisabledCollisions(const urdf::ModelInterface &urdf_model,
   }
 }
 
-void srdf::Model::loadPassiveJoints(const urdf::ModelInterface &urdf_model, TiXmlElement *robot_xml)
-{  
-  for (TiXmlElement* c_xml = robot_xml->FirstChildElement("passive_joint"); c_xml; c_xml = c_xml->NextSiblingElement("passive_joint"))
-  {
-    const char *name = c_xml->Attribute("name");
-    if (!name)
-    {
-      logError("No name specified for passive joint. Ignoring.");
-      continue;
-    }
-    PassiveJoint pj;
-    pj.name_ = boost::trim_copy(std::string(name));
-
-    // see if a virtual joint was marked as passive
-    bool vjoint = false;
-    for (std::size_t i = 0 ; !vjoint && i < virtual_joints_.size() ; ++i)
-      if (virtual_joints_[i].name_ == pj.name_)
-        vjoint = true;
-    
-    if (!vjoint && !urdf_model.getJoint(pj.name_))
-    {
-      logError("Joint '%s' marked as passive is not known to the URDF. Ignoring.", name);
-      continue;
-    }
-    passive_joints_.push_back(pj);
-  }
-}
-
 bool srdf::Model::initXml(const urdf::ModelInterface &urdf_model, TiXmlElement *robot_xml)
 {
   clear();
@@ -487,7 +454,6 @@ bool srdf::Model::initXml(const urdf::ModelInterface &urdf_model, TiXmlElement *
   loadGroupStates(urdf_model, robot_xml);
   loadEndEffectors(urdf_model, robot_xml); 
   loadDisabledCollisions(urdf_model, robot_xml);
-  loadPassiveJoints(urdf_model, robot_xml);
   
   return true;
 }
@@ -543,7 +509,6 @@ void srdf::Model::clear(void)
   virtual_joints_.clear();
   end_effectors_.clear();
   disabled_collisions_.clear();
-  passive_joints_.clear();
 }
 
 std::vector<std::pair<std::string, std::string> > srdf::Model::getDisabledCollisions(void) const
