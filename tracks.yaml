@@ -9,11 +9,11 @@ tracks:
     - git-bloom-generate -y rosdebian --prefix release/:{ros_distro} :{ros_distro}
       -i :{release_inc}
     devel_branch: null
-    name: upstream
-    patches: null
+    name: srdfdom
+    patches: fuerte
     release_inc: -1
     release_tag: :{version}
-    ros_distro: groovy
+    ros_distro: fuerte
     vcs_type: git
-    vcs_uri: git@github.com:ros-planning/srdfdom.git
-    version: :{auto}
+    vcs_uri: https://github.com/ros-planning/srdfdom.git
+    version: :{ask}
