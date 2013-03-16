@@ -1,0 +1,12 @@
+Source: ros-fuerte-srdfdom
+Section: misc
+Priority: extra
+Maintainer: Ioan Sucan <isucan@willowgarage.com>
+Build-Depends: debhelper (>= 7.0.50~), cmake, libboost-all-dev, libtinyxml-dev, pkg-config, ros-fuerte-console-bridge, ros-fuerte-urdfdom-headers
+Homepage: http://www.ros.org/wiki/srdf
+Standards-Version: 3.9.2
+
+Package: ros-fuerte-srdfdom
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, libtinyxml-dev, ros-fuerte-console-bridge, ros-fuerte-urdfdom-headers
+Description: srdfdom is a parser for SRDF
