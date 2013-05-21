@@ -1,16 +1,16 @@
 <package>
   <name>srdfdom</name>
-  <version>0.1.1</version>
-  <description>srdfdom is a parser for SRDF</description>
-  <author email="isucan@willowgarage.com">Ioan Sucan</author>
+  <version>0.2.5</version>
+  <description>Parser for Semantic Robot Description Format (SRDF).</description>
+  <author email="isucan@willowgarage.edu">Ioan Sucan</author>
   <maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
   <license>BSD</license>
-
-  <url>http://www.ros.org/wiki/srdf</url>
+  <url type="website">http://ros.org/wiki/srdf</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>pkg-config</buildtool_depend>
 
   <build_depend>boost</build_depend>
-  <build_depend>cmake</build_depend>
-  <build_depend>pkg-config</build_depend>
   <build_depend>tinyxml</build_depend>
   <build_depend>urdfdom_headers</build_depend>
   <build_depend>console_bridge</build_depend>
