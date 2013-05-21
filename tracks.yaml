@@ -35,7 +35,7 @@ tracks:
     ros_distro: groovy
     vcs_type: git
     vcs_uri: https://github.com/ros-planning/srdfdom.git
-    version: 0.2.4
+    version: 0.2.5
   hydro:
     actions:
     - bloom-export-upstream :{vcs_local_uri} :{vcs_type} --tag :{release_tag} --display-uri
