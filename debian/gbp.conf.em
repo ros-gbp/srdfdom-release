@@ -1,3 +1,3 @@
 [git-buildpackage]
-upstream-branch=release/srdfdom/0.2.4
+upstream-branch=@(release_tag)
 upstream-tree=branch
