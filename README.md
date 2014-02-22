@@ -1,5 +1,24 @@
 ## srdfdom - 0.2.6-0
 
+User `isucan@isucan-glaptop0` released the packages in the `srdfdom` repository by running `/usr/bin/bloom-release -t indigo -r indigo --new-track srdfdom` on `Sat, 22 Feb 2014 18:28:46 -0000`
+
+The `srdfdom` package was released.
+
+Version of package(s) in repository `srdfdom`:
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.2.6-0`
+
+Versions of tools used:
+- bloom version: `0.4.9`
+- catkin_pkg version: `0.1.26`
+- rosdep version: `0.10.25`
+- rosdistro version: `0.3.4`
+- vcstools version: `0.1.33`
+
+
+## srdfdom - 0.2.6-0
+
 User `isucan@e6400` released the packages in the `srdfdom` repository by running `/usr/local/bin/bloom-release --track groovy --ros-distro groovy -e srdfdom` on `Fri, 19 Jul 2013 15:19:10 -0000`
 
 The `srdfdom` package was released.
