@@ -1,7 +1,0 @@
-ros-indigo-srdfdom (0.2.6-0saucy) saucy; urgency=high
-
-  * fix incorrect tag name
-
- -- Ioan Sucan <isucan@willowgarage.com>  Fri, 19 Jul 2013 07:00:00 -0000
-
-
