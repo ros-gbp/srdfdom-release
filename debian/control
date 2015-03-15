@@ -1,0 +1,12 @@
+Source: ros-jade-srdfdom
+Section: misc
+Priority: extra
+Maintainer: Ioan Sucan <isucan@willowgarage.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, libconsole-bridge-dev, libtinyxml-dev, liburdfdom-headers-dev, pkg-config, ros-jade-catkin, ros-jade-cmake-modules
+Homepage: http://ros.org/wiki/srdf
+Standards-Version: 3.9.2
+
+Package: ros-jade-srdfdom
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, libconsole-bridge-dev, libtinyxml-dev, liburdfdom-headers-dev
+Description: Parser for Semantic Robot Description Format (SRDF).

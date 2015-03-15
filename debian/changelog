@@ -1,0 +1,17 @@
+ros-jade-srdfdom (0.2.7-0trusty) trusty; urgency=high
+
+  * fixing dependencies for https://github.com/ros/rosdistro/issues/4633
+  * added travis build status indicator in README.md
+  * added travis support
+  * use FindTinyXML from cmake_module
+  * Contributors: Dave Coleman, Dave Hershberger, Ioan Sucan, Tully Foote
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Tue, 01 Jul 2014 07:00:00 -0000
+
+ros-jade-srdfdom (0.2.6-0trusty) trusty; urgency=high
+
+  * fix incorrect tag name
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Fri, 19 Jul 2013 07:00:00 -0000
+
+
