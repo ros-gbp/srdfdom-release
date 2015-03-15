@@ -1,3 +1,24 @@
+## srdfdom (jade) - 0.2.7-0
+
+The packages in the `srdfdom` repository were released into the `jade` distro by running `/usr/bin/bloom-release -t jade -r jade srdfdom` on `Sun, 15 Mar 2015 07:09:05 -0000`
+
+The `srdfdom` package was released.
+
+Version of package(s) in repository `srdfdom`:
+- upstream repository: https://github.com/ros-planning/srdfdom.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.2.7-0`
+
+Versions of tools used:
+- bloom version: `0.5.19`
+- catkin_pkg version: `0.2.7`
+- rosdep version: `0.11.2`
+- rosdistro version: `0.4.1`
+- vcstools version: `0.1.36`
+
+
 ## srdfdom (indigo) - 0.2.7-0
 
 The packages in the `srdfdom` repository were released into the `indigo` distro by running `/usr/bin/bloom-release -t indigo -r indigo --edit srdfdom` on `Tue, 01 Jul 2014 07:40:15 -0000`
