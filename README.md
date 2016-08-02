@@ -1,3 +1,26 @@
+## srdfdom (kinetic) - 0.3.1-0
+
+The packages in the `srdfdom` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --rosdistro kinetic --track kinetic srdfdom` on `Tue, 02 Aug 2016 00:53:19 -0000`
+
+The `srdfdom` package was released.
+
+Version of package(s) in repository `srdfdom`:
+
+- upstream repository: https://github.com/ros-planning/srdfdom.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.3.1-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.21`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.4.7`
+- vcstools version: `0.1.38`
+
+
 ## srdfdom (indigo) - 0.3.0-0
 
 The packages in the `srdfdom` repository were released into the `indigo` distro by running `/usr/bin/bloom-release srdfdom -t indigo -r indigo` on `Wed, 17 Jun 2015 03:57:05 -0000`
