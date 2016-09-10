@@ -2,9 +2,9 @@
 Changelog for package srdfdom
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.3.3 (2016-09-09)
+0.4.0 (2016-09-09)
 ------------------
-* [fix] Define shared_ptr typedef (adjusting to the recent change in urdfdom) `#18 <https://github.com/ros-planning/srdfdom/issues/18>`_
+* [fix] Define shared_ptr typedef (adjusting to the recent change in urdfdom) `#21 <https://github.com/ros-planning/srdfdom/issues/21>`_
 * Contributors: Dave Coleman, Robert Haschke
 
 0.3.2 (2016-08-25)

@@ -45,11 +45,6 @@
 #include <boost/shared_ptr.hpp>
 #include <tinyxml.h>
 
-namespace urdf
-{
-typedef boost::shared_ptr<const ::urdf::Link> LinkConstSharedPtr;
-}
-
 /// Main namespace
 namespace srdf
 {
