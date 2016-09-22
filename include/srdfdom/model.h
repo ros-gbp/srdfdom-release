@@ -42,13 +42,9 @@
 #include <vector>
 #include <utility>
 #include <urdf_model/model.h>
+#include <srdfdom/urdfdom_compatibility.h>
 #include <boost/shared_ptr.hpp>
 #include <tinyxml.h>
-
-namespace urdf
-{
-typedef boost::shared_ptr<const ::urdf::Link> LinkConstSharedPtr;
-}
 
 /// Main namespace
 namespace srdf
