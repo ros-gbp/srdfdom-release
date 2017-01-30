@@ -123,7 +123,7 @@ tracks:
     last_version: 0.4.1
     name: upstream
     patches: null
-    release_inc: '0'
+    release_inc: '1'
     release_repo_url: git@github.com:ros-gbp/srdfdom-release.git
     release_tag: :{version}
     ros_distro: kinetic
