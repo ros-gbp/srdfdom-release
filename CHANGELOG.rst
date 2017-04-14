@@ -2,19 +2,23 @@
 Changelog for package srdfdom
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.3.5 (2017-02-06)
+0.4.2 (2017-01-30)
 ------------------
-* [Indigo] cleanup urdfdom compatibility (cherry-picking `#27 <https://github.com/ros-planning/srdfdom/issues/27>`_) `#30 <https://github.com/ros-planning/srdfdom/issues/30>`_
-* Contributors: Isaac I.Y. Saito, Michael Goerner, Robert Haschke
+* [fix] gcc6 build error `#28 <https://github.com/ros-planning/srdfdom/issues/28>`_
+* [fix] Compile with -std=c++11 (`#29 <https://github.com/ros-planning/srdfdom/issues/29>`_)
+* [enhancement] cleanup urdfdom compatibility (`#27 <https://github.com/ros-planning/srdfdom/issues/27>`_)
+* Contributors: Dmitry Rozhkov, Isaac I.Y. Saito, Robert Haschke, Victor Matare
 
-0.3.4 (2017-01-30)
+0.4.1 (2016-09-22)
 ------------------
-* [maintenance] re-add boost/shared_ptr.hpp include (`#26 <https://github.com/ros-planning/srdfdom/issues/26>`_)
-* Contributors: Michael Goerner
+* [fix][system] Build failure for Ubuntu Wily and Debian Jesie (urdfdom compatibility `#25 <https://github.com/ros-planning/srdfdom/issues/25>`_)
+  * test for existence of urdf typedef
+  * if not existing, activate compatibility header
+* Contributors: Michael Goerner, Robert Haschke
 
-0.3.3 (2016-09-09)
+0.4.0 (2016-09-09)
 ------------------
-* [fix] Define shared_ptr typedef (adjusting to the recent change in urdfdom) `#18 <https://github.com/ros-planning/srdfdom/issues/18>`_
+* [fix] Define shared_ptr typedef (adjusting to the recent change in urdfdom) `#21 <https://github.com/ros-planning/srdfdom/issues/21>`_
 * Contributors: Dave Coleman, Robert Haschke
 
 0.3.2 (2016-08-25)
