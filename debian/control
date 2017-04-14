@@ -1,0 +1,12 @@
+Source: ros-lunar-srdfdom
+Section: misc
+Priority: extra
+Maintainer: Dave Coleman <dave@dav.ee>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, libconsole-bridge-dev, libtinyxml-dev, liburdfdom-headers-dev, ros-lunar-catkin, ros-lunar-cmake-modules, ros-lunar-rostest, ros-lunar-urdf, ros-lunar-urdfdom-py
+Homepage: http://ros.org/wiki/srdfdom
+Standards-Version: 3.9.2
+
+Package: ros-lunar-srdfdom
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, libconsole-bridge-dev, libtinyxml-dev, liburdfdom-headers-dev, ros-lunar-urdfdom-py
+Description: Parser for Semantic Robot Description Format (SRDF).
