@@ -1,3 +1,26 @@
+## srdfdom (melodic) - 0.5.1-0
+
+The packages in the `srdfdom` repository were released into the `melodic` distro by running `/usr/bin/bloom-release srdfdom --rosdistro melodic` on `Wed, 25 Apr 2018 15:30:06 -0000`
+
+The `srdfdom` package was released.
+
+Version of package(s) in repository `srdfdom`:
+
+- upstream repository: https://github.com/ros-planning/srdfdom.git
+- release repository: https://github.com/ros-gbp/srdfdom-release.git
+- rosdistro version: `0.5.0-0`
+- old version: `0.5.0-0`
+- new version: `0.5.1-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.4`
+- catkin_pkg version: `0.4.1`
+- rosdep version: `0.12.2`
+- rosdistro version: `0.6.8`
+- vcstools version: `0.1.40`
+
+
 ## srdfdom (melodic) - 0.5.0-0
 
 The packages in the `srdfdom` repository were released into the `melodic` distro by running `/usr/bin/bloom-release srdfdom --rosdistro melodic --edit` on `Tue, 24 Apr 2018 12:23:31 -0000`
