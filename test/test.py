@@ -8,6 +8,11 @@ from srdfdom.srdf import SRDF
 from xml.dom.minidom import parseString
 import xml.dom
 
+try:
+  string_types = (str, unicode)
+except NameError:
+  string_types = (str)
+
 # xml match code from test_xacro.py  
 # by Stuart Glaser and William Woodall
 
@@ -69,9 +74,9 @@ def elements_match(a, b):
   return True
 
 def xml_matches(a, b):
-  if isinstance(a, str):
+  if isinstance(a, string_types):
     return xml_matches(parseString(a).documentElement, b)
-  if isinstance(b, str):
+  if isinstance(b, string_types):
     return xml_matches(a, parseString(b).documentElement)
   if a.nodeType == xml.dom.Node.DOCUMENT_NODE:
     return xml_matches(a.documentElement, b)
@@ -144,10 +149,10 @@ class TestSRDFParser(unittest.TestCase):
 </robot>
         '''
         robot = SRDF.from_xml_string(srdf_data)
-        self.assertTrue( xml_matches(robot.to_xml_string(),expected))
+        self.assertTrue(xml_matches(robot.to_xml_string(),expected))
         
   def test_simple_srdf(self):
-        datadir=rospkg.RosPack().get_path('srdfdom')+"/test/res/"
+        datadir=rospkg.RosPack().get_path('srdfdom')+"/test/resources/"
         stream = open(datadir+'pr2_desc.1.srdf', 'r')
         robot = SRDF.from_xml_string(stream.read())
         stream.close()
@@ -167,7 +172,7 @@ class TestSRDFParser(unittest.TestCase):
         self.assertTrue(len(robot.end_effectors)==0)
         
   def test_complex_srdf(self):
-        datadir=rospkg.RosPack().get_path('srdfdom')+"/test/res/"
+        datadir=rospkg.RosPack().get_path('srdfdom')+"/test/resources/"
         stream = open(datadir+'pr2_desc.3.srdf', 'r')
         robot = SRDF.from_xml_string(stream.read())
         stream.close()
