@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(srdfdom)
 
 find_package(Boost REQUIRED)
@@ -6,12 +6,18 @@ find_package(Boost REQUIRED)
 find_package(console_bridge REQUIRED)
 find_package(urdfdom_headers REQUIRED)
 
-find_package(catkin REQUIRED COMPONENTS cmake_modules urdf urdfdom_py)
+find_package(catkin REQUIRED COMPONENTS cmake_modules urdf)
 
 find_package(TinyXML REQUIRED)
 
-include_directories(include ${Boost_INCLUDE_DIR} ${TinyXML_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} ${console_bridge_INCLUDE_DIRS} ${urdfdom_headers_INCLUDE_DIRS})
-link_directories(${catkin_LIBRARY_DIRS})
+include_directories(
+  include
+  ${Boost_INCLUDE_DIR}
+  ${TinyXML_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
+  ${console_bridge_INCLUDE_DIRS}
+  ${urdfdom_headers_INCLUDE_DIRS}
+  )
 
 add_compile_options(-std=c++11)
 
@@ -19,11 +25,11 @@ catkin_python_setup()
 
 catkin_package(
   LIBRARIES ${PROJECT_NAME}
-  INCLUDE_DIRS include ${TinyXML_INCLUDE_DIRS}
-  DEPENDS console_bridge urdfdom_headers urdfdom_py
+  INCLUDE_DIRS include
+  DEPENDS TinyXML console_bridge urdfdom_headers
 )
 
-add_library(${PROJECT_NAME} 
+add_library(${PROJECT_NAME}
   src/model.cpp
   src/srdf_writer.cpp
 )
@@ -38,7 +44,7 @@ install(DIRECTORY include/${PROJECT_NAME}/
   FILES_MATCHING PATTERN "*.h"
 )
 
-install(PROGRAMS 
+install(PROGRAMS
   scripts/display_srdf
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
@@ -46,4 +52,15 @@ install(PROGRAMS
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
   add_rostest(test/srdf_parser.test)
+
+  add_definitions(-DTEST_RESOURCE_LOCATION="${CMAKE_SOURCE_DIR}/test/resources")
+  execute_process(COMMAND bash -c "locale -a | grep -q ^nl_NL"
+    RESULT_VARIABLE TEST_LOCALE
+    OUTPUT_QUIET ERROR_QUIET)
+  if (TEST_LOCALE)
+    message(WARNING "Locale nl_NL not available. Locale test will not be meaningful.")
+  endif()
+
+  add_rostest_gtest(test_cpp test/srdf_parser_cpp.test test/test_parser.cpp)
+  target_link_libraries(test_cpp ${catkin_LIBRARIES} ${PROJECT_NAME})
 endif()
