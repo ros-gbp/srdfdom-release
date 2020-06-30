@@ -1,0 +1,12 @@
+Source: ros-melodic-srdfdom
+Section: misc
+Priority: optional
+Maintainer: MoveIt Release Team <moveit_releasers@googlegroups.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, libconsole-bridge-dev, libtinyxml-dev, ros-melodic-catkin, ros-melodic-cmake-modules, ros-melodic-rostest, ros-melodic-urdf
+Homepage: http://ros.org/wiki/srdfdom
+Standards-Version: 3.9.2
+
+Package: ros-melodic-srdfdom
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, libtinyxml-dev, ros-melodic-urdf, ros-melodic-urdfdom-py
+Description: Parser for Semantic Robot Description Format (SRDF).
