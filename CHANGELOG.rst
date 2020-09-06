@@ -2,6 +2,12 @@
 Changelog for package srdfdom
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.1 (2020-09-06)
+------------------
+* [maint]  Silence cmake warning
+* [bugfix] Fixup SRDFWriter
+* Contributors: Robert Haschke
+
 0.6.0 (2020-08-19)
 ------------------
 * [maint] Switch from TinyXML to TinyXML2 (`#60 <https://github.com/ros-planning/srdfdom/issues/60>`_)
