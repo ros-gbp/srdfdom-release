@@ -4,8 +4,9 @@ Changelog for package srdfdom
 
 0.6.1 (2020-09-06)
 ------------------
+* [bugfix] SRDFWriter: Correctly populate XML document
+* [bugfix] SRDFWriter: Use locale independent conversion from double to string (`#67 <https://github.com/ros-planning/srdfdom/issues/67>`_)
 * [maint]  Silence cmake warning
-* [bugfix] Fixup SRDFWriter
 * Contributors: Robert Haschke
 
 0.6.0 (2020-08-19)
