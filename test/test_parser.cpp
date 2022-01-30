@@ -94,6 +94,7 @@ TEST(TestCpp, testSimple)
   EXPECT_TRUE(s.getGroups().size() == 0);
   EXPECT_TRUE(s.getGroupStates().size() == 0);
   EXPECT_TRUE(s.getDisabledCollisionPairs().empty());
+  EXPECT_TRUE(s.getEnabledCollisionPairs().empty());
   EXPECT_TRUE(s.getEndEffectors().size() == 0);
 
   EXPECT_TRUE(s.initFile(*u, std::string(TEST_RESOURCE_LOCATION) + "/pr2_desc.2.srdf"));
@@ -101,6 +102,7 @@ TEST(TestCpp, testSimple)
   EXPECT_TRUE(s.getGroups().size() == 1);
   EXPECT_TRUE(s.getGroupStates().size() == 0);
   EXPECT_TRUE(s.getDisabledCollisionPairs().empty());
+  EXPECT_TRUE(s.getEnabledCollisionPairs().empty());
   EXPECT_TRUE(s.getEndEffectors().size() == 0);
 
   EXPECT_TRUE(s.initFile(*u, std::string(TEST_RESOURCE_LOCATION) + "/pr2_desc.1.srdf"));
@@ -108,6 +110,7 @@ TEST(TestCpp, testSimple)
   EXPECT_TRUE(s.getGroups().size() == 0);
   EXPECT_TRUE(s.getGroupStates().size() == 0);
   EXPECT_TRUE(s.getDisabledCollisionPairs().empty());
+  EXPECT_TRUE(s.getEnabledCollisionPairs().empty());
   EXPECT_TRUE(s.getEndEffectors().size() == 0);
 }
 
@@ -130,11 +133,17 @@ TEST(TestCpp, testComplex)
   for (std::size_t i = 0; i < s.getGroups().size(); ++i)
   {
     if (s.getGroups()[i].name_ == "left_arm" || s.getGroups()[i].name_ == "right_arm")
+    {
       EXPECT_TRUE(s.getGroups()[i].chains_.size() == 1);
+    }
     if (s.getGroups()[i].name_ == "arms")
+    {
       EXPECT_TRUE(s.getGroups()[i].subgroups_.size() == 2);
+    }
     if (s.getGroups()[i].name_ == "base")
+    {
       EXPECT_TRUE(s.getGroups()[i].joints_.size() == 1);
+    }
     if (s.getGroups()[i].name_ == "l_end_effector" || s.getGroups()[i].name_ == "r_end_effector")
     {
       EXPECT_TRUE(s.getGroups()[i].links_.size() == 1);
