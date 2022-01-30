@@ -1,3 +1,26 @@
+## srdfdom (noetic) - 0.6.3-1
+
+The packages in the `srdfdom` repository were released into the `noetic` distro by running `/usr/bin/bloom-release --ros-distro noetic srdfdom` on `Sun, 30 Jan 2022 17:07:25 -0000`
+
+The `srdfdom` package was released.
+
+Version of package(s) in repository `srdfdom`:
+
+- upstream repository: https://github.com/ros-planning/srdfdom.git
+- release repository: https://github.com/ros-gbp/srdfdom-release.git
+- rosdistro version: `0.6.2-1`
+- old version: `0.6.2-1`
+- new version: `0.6.3-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.24`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## srdfdom (noetic) - 0.6.2-1
 
 The packages in the `srdfdom` repository were released into the `noetic` distro by running `/usr/bin/bloom-release --rosdistro noetic srdfdom` on `Wed, 09 Sep 2020 21:01:08 -0000`
