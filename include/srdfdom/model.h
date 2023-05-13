@@ -52,6 +52,9 @@ namespace srdf
 class Model
 {
 public:
+  using PropertyMap = std::map<std::string, std::string>;       // property name -> value
+  using JointPropertyMap = std::map<std::string, PropertyMap>;  // joint name -> properties
+
   Model()
   {
   }
@@ -95,7 +98,7 @@ public:
     /// be added to the group. Each chain is specified as a
     /// pair of base link and tip link. It is checked that the
     /// chain is indeed a chain in the specified URDF.
-    std::vector<std::pair<std::string, std::string> > chains_;
+    std::vector<std::pair<std::string, std::string>> chains_;
 
     /// It is sometimes convenient to refer to the content of
     /// another group. A group can include the content of the
@@ -150,7 +153,7 @@ public:
 
     /// The values of joints for this state. Each joint can have a value. We use a vector for the 'value' to support
     /// multi-DOF joints
-    std::map<std::string, std::vector<double> > joint_values_;
+    std::map<std::string, std::vector<double>> joint_values_;
   };
 
   /// The definition of a sphere
@@ -255,10 +258,30 @@ public:
     return link_sphere_approximations_;
   }
 
+  /// Get the joint properties for a particular joint
+  const PropertyMap& getJointProperties(const std::string& joint_name) const
+  {
+    static const PropertyMap empty_map;
+
+    auto it = joint_properties_.find(joint_name);
+    if (it == joint_properties_.end())
+      return empty_map;
+    else
+      return it->second;
+  }
+
+  /// Get the joint properties map
+  const JointPropertyMap& getJointProperties() const
+  {
+    return joint_properties_;
+  }
+
   /// Clear the model
   void clear();
 
 private:
+  bool isValidJoint(const urdf::ModelInterface& urdf_model, const std::string& name) const;
+
   void loadVirtualJoints(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
   void loadGroups(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
   void loadGroupStates(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
@@ -268,6 +291,7 @@ private:
   void loadCollisionPairs(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml, const char* tag_name,
                           std::vector<CollisionPair>& pairs);
   void loadPassiveJoints(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
+  void loadJointProperties(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
 
   std::string name_;
   std::vector<Group> groups_;
@@ -279,6 +303,7 @@ private:
   std::vector<CollisionPair> enabled_collision_pairs_;
   std::vector<CollisionPair> disabled_collision_pairs_;
   std::vector<PassiveJoint> passive_joints_;
+  JointPropertyMap joint_properties_;
 };
 typedef std::shared_ptr<Model> ModelSharedPtr;
 typedef std::shared_ptr<const Model> ModelConstSharedPtr;
